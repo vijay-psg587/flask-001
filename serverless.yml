@@ -1,0 +1,29 @@
+service: flask-python-app
+
+frameworkVersion: '1'
+
+provider:
+  name: aws
+  runtime: python3.8
+  lambdaHashingVersion: 20201221
+  region: ap-south-1
+  memorySize: 128
+  role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
+
+custom:
+  Env: ${opt:stage, 'dev'}
+  wsgi:
+   app: main.app
+   pythonRequirements:
+    dockerizePip: true
+
+functions:
+  app:
+   handler: wsgi.handler
+   events:
+    - http: ANY /
+    - http: 'ANY {proxy+}'
+
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
