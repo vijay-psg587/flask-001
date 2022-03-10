@@ -9,7 +9,7 @@ on:
 jobs:
     setup-build-deploy:
         name: Setup, Build, and Deploy
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout SCM
@@ -25,4 +25,6 @@ jobs:
                  node-version: '14'
             - run: |
                 npm i -g serverless
+                serverless plugin install -n serverless-python-requirements
+                serverless plugin install -n serverless-wsgi
                 SLS_DEBUG=1 sls deploy --stage dev
