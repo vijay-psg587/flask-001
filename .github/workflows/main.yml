@@ -27,4 +27,5 @@ jobs:
                 npm i -g serverless
                 serverless plugin install -n serverless-python-requirements
                 serverless plugin install -n serverless-wsgi
+                serverless plugin install -n serverless-deployment-bucket
                 SLS_DEBUG=1 sls deploy --stage dev
