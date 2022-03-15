@@ -22,7 +22,6 @@ jobs:
               with:
                   node-version: "14"
             - run: |
-                  cat serverless.yml
-                  chmod -R 775 ./build/
-                  ./build/build.sh
+                  npm i -g serverless
+                  serverless plugin install -n serverless-wsgi
                   SLS_DEBUG=1 sls deploy --stage dev

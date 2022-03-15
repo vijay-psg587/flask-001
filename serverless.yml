@@ -46,6 +46,4 @@ functions:
       - http: "ANY {proxy+}"
 
 plugins:
-  - serverless-python-requirements
   - serverless-wsgi
-  - serverless-deployment-bucket
