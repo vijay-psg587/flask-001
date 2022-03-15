@@ -13,17 +13,16 @@ jobs:
             - name: Checkout SCM
               uses: actions/checkout@v2
 
-           # - name: Configure AWS credentials
-             # uses: aws-actions/configure-aws-credentials@v1
-             # with:
-             #  aws-region: ap-south-1
+            # - name: Configure AWS credentials
+            # uses: aws-actions/configure-aws-credentials@v1
+            # with:
+            #  aws-region: ap-south-1
 
             - uses: actions/setup-node@v2
               with:
-                 node-version: '14'
+                  node-version: "14"
             - run: |
-                npm i -g serverless
-                serverless plugin install -n serverless-python-requirements
-                serverless plugin install -n serverless-wsgi
-                serverless plugin install -n serverless-deployment-bucket
-                SLS_DEBUG=1 sls deploy --stage dev
+                  cat serverless.yml
+                  chmod -R 775 ./build/
+                  ./build/build.sh
+                  SLS_DEBUG=1 sls deploy --stage dev

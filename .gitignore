@@ -2,13 +2,16 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+node_modules
+package.json
+package-lock.json
+.vscode/
+.idea/
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
