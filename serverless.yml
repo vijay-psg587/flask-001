@@ -42,12 +42,15 @@ package:
 
 custom:
   Env: ${opt:stage, 'dev'}
+  pythonRequirements:
+    dockerizePip: non-linux
   wsgi:
     app: main.app
+    packageRequirements: false # this is to make wsgi not to pack ur dependencies since its handled by layers already
 
 functions:
   app:
-    handler: wsgi.handler
+    handler: wsgi_handler.handler
     layers:
       - arn:aws:lambda:ap-south-1:035825521573:layer:pia-flask:1
     events:
@@ -55,4 +58,5 @@ functions:
       - http: "ANY {proxy+}"
 
 plugins:
+  - serverless-python-requirements
   - serverless-wsgi
