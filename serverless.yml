@@ -7,10 +7,19 @@ provider:
   memorySize: 512
   timeout: 30
   role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
+  tags:
+    Org: HASHEDIN
+    Product: PR001
+    Dep: HU
   deploymentBucket:
     name: hu-evaluator
     serverSideEncryption: AES256
   deploymentPrefix: serverless
+  stackName: pia-api
+  stackTags:
+    Org: HASHEDIN
+    Product: PR001
+    Dep: HU
 package:
   patterns:
     - "!.serverless/**"

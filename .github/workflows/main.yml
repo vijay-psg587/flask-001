@@ -23,5 +23,5 @@ jobs:
                   node-version: "14"
             - run: |
                   npm i -g serverless
-                  serverless plugin install -n serverless-wsgi
+
                   SLS_DEBUG=1 sls deploy --stage dev
