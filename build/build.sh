@@ -4,8 +4,8 @@ echo "Installing npm & serverless dependencies"
 # npm init
 # Make sure serverless is installed first
 # npm i -g serverless
-npm i -g serverless
-serverless plugin install -n serverless-python-requirements serverless-wsgi
+# npm i -g serverless
+serverless plugin install -n serverless-python-requirements@4.4.1 serverless-wsgi
 
 
 # echo "###Replacing plugin section in serverless"
