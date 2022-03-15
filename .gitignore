@@ -132,5 +132,5 @@ dmypy.json
 .pyre/
 .idea
 node_modules
-
+.serverless
 venv

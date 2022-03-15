@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 echo "Installing npm & serverless dependencies"
 # npm init
