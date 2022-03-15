@@ -4,12 +4,13 @@ provider:
   name: aws
   runtime: python3.7
   region: ap-south-1
-  memorySize: 128
+  memorySize: 512
+  timeout: 30
   role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
   deploymentBucket:
     name: hu-evaluator
     serverSideEncryption: AES256
-  deploymentPrefix: deployment
+  deploymentPrefix: serverless
 package:
   patterns:
     - "!.serverless/**"
@@ -47,3 +48,4 @@ functions:
 plugins:
   - serverless-python-requirements
   - serverless-wsgi
+  - serverless-deployment-bucket

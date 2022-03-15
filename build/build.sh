@@ -1,13 +1,12 @@
-#! /bin/bash
+#! /bin/zsh
 
 echo "Installing npm & serverless dependencies"
 # npm init
 # Make sure serverless is installed first
 # npm i -g serverless
-npm i -g serverless
-serverless plugin install -n serverless-python-requirements
+# npm i -g serverless
 serverless plugin install -n serverless-wsgi
-serverless plugin install -n serverless-deployment-bucket
+
 
 # echo "###Replacing plugin section in serverless"
 
