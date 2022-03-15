@@ -2,7 +2,7 @@ service: flask-python-plagiarism
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.7
   region: ap-south-1
   memorySize: 128
   role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
@@ -27,15 +27,14 @@ package:
     - "!.__pycache__/**"
     - "!.logs/**"
     - "!.DS_Store"
+    - "package.json"
+    - "package-lock.json"
 
 custom:
   Env: ${opt:stage, 'dev'}
   wsgi:
     app: main.app
-    pythonRequirements:
-      dockerizePip: true
-      compatibleRuntimes:
-        - python3.8
+
 functions:
   app:
     handler: wsgi.handler
