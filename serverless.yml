@@ -1,12 +1,12 @@
 service: flask-python-plagiarism
-
+configValidationMode: error
 provider:
   name: aws
   runtime: python3.7
   region: ap-south-1
   memorySize: 512
   timeout: 30
-  role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
+  # role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
   tags:
     Org: HASHEDIN
     Product: PR001
@@ -43,7 +43,7 @@ package:
 custom:
   Env: ${opt:stage, 'dev'}
   pythonRequirements:
-    dockerizePip: non-linux
+    dockerizePip: false
   wsgi:
     app: main.app
     packageRequirements: false # this is to make wsgi not to pack ur dependencies since its handled by layers already
@@ -51,8 +51,9 @@ custom:
 functions:
   app:
     handler: wsgi_handler.handler
-    layers:
-      - arn:aws:lambda:ap-south-1:035825521573:layer:pia-flask:1
+    # layers:
+    #   - arn:aws:lambda:ap-south-1:035825521573:layer:pia-flask:1
+
     events:
       - http: ANY /
       - http: "ANY {proxy+}"
