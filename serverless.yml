@@ -11,9 +11,9 @@ provider:
   #  since we are getting environment variables from githubactions and that inturn needs to be avaialble
   # to the actual lambda , we need to do this
   environment:
-    DATABASE_USER: ${env:DATABASE_USER}
-    DATABASE_PASSWORD: ${env:DATABASE_PASSWORD}
-    JWT_SECRET: ${env:JWT_SECRET}
+    DATABASE_USER: "testUser"
+    DATABASE_PASSWORD: "testPassword"
+    JWT_SECRET: "testSecret"
   # role: arn:aws:iam::035825521573:role/service-role/hu-evaluator-role-pue05nih
   tags:
     Org: HASHEDIN
