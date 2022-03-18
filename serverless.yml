@@ -20,7 +20,7 @@ provider:
     Product: PR001
     Dep: HU
   deploymentBucket:
-    name: hu-evaluator
+    name: hu-evaluator-vv
     serverSideEncryption: AES256
   deploymentPrefix: serverless
   stackName: pia-api
