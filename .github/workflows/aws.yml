@@ -1,0 +1,28 @@
+name: Flask App
+
+on:
+    push:
+        branches:
+            - mainwe
+jobs:
+    setup-build-deploy:
+        name: Setup, Build, and Deploy
+        runs-on: self-hosted
+
+        steps:
+            - name: Checkout SCM
+              uses: actions/checkout@v2
+
+            # - name: Configure AWS credentials
+            # uses: aws-actions/configure-aws-credentials@v1
+            # with:
+            #  aws-region: ap-south-1
+
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: "14"
+            - run: |
+                  npm i -g serverless
+                  serverless plugin install -n serverless-python-requirements@4.1.1
+                  serverless plugin install -n serverless-wsgi
+                  SLS_DEBUG=* sls deploy --stage dev
