@@ -6,7 +6,8 @@ provider:
   region: ap-south-1
   memorySize: 512
   timeout: 30
-
+  httpApi:
+    id: 6ser0pzuj2
   # Common environment creation that can be used across all functions
   #  since we are getting environment variables from githubactions and that inturn needs to be avaialble
   # to the actual lambda , we need to do this
@@ -63,11 +64,11 @@ functions:
     # layers:
     #   - arn:aws:lambda:ap-south-1:035825521573:layer:pia-flask:1
     events:
-      - http:
+      - httpApi:
           path: /
           method: ANY
           cors: true
-      - http:
+      - httpApi:
           path: /{proxy+}
           method: ANY
           cors: true

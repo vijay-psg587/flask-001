@@ -32,7 +32,7 @@ jobs:
               with:
                   role-to-assume: arn:aws:iam::239374439066:role/githublambdaSTS
                   role-duration-seconds: 1000 # the ttl of the session, in seconds.
-
+                  role-session-name: FlaskDeployment
                   aws-region: ap-south-1 # use your region here.
             - name: Setup Node
               uses: actions/setup-node@v2
